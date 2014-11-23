@@ -22,6 +22,7 @@ void ZYContainerUi::PaintBkImage(HDC hDC) {
 		if (!DrawImage(hDC, m_sBkImage.Mid(pos).GetData())) {
 			m_sBkImage.Empty();
 		}
+		CPaintManagerUI::SetResourcePath(_T(""));
 		CPaintManagerUI::SetResourceZip(olddir.GetData());
 	}
 }
