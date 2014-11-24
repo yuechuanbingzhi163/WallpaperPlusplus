@@ -86,6 +86,8 @@ DWORD WINAPI ZYHttpDownloader::DownloadThread(LPVOID thiz) {
 							_thiz->m_cb->OnComplete(url.GetData(), filepath.GetData());
 						}
 						continue;
+					} else {
+						::DeleteFile(filepath.GetData());
 					}
 					
 				}

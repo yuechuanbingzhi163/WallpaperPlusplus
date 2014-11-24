@@ -75,6 +75,9 @@ VOID ZYSetter::OnCreate() {
 	if ((option = (COptionUI *) m_paintManagerUi.FindControl(_T("autostart")))) {
 		option->Selected(!_tcscmp(configurator->GetValue(_T("autostart")).GetData(), _T("true")) ? true : false);
 	}
+	if ((option = (COptionUI *) m_paintManagerUi.FindControl(_T("minimized")))) {
+		option->Selected(!_tcscmp(configurator->GetValue(_T("minimized")).GetData(), _T("true")) ? true : false);
+	}
 	if ((option = (COptionUI *) m_paintManagerUi.FindControl(_T("autodownload")))) {
 		option->Selected(!_tcscmp(configurator->GetValue(_T("autodownload")).GetData(), _T("true")) ? true : false);
 	}
@@ -108,6 +111,9 @@ VOID ZYSetter::OnSaveButtonClick() {
 	CEditUI *edit;
 	if ((option = (COptionUI *) m_paintManagerUi.FindControl(_T("autostart")))) {
 		configurator->SetValue(_T("autostart"), option->IsSelected() ? _T("true") : _T("false"));
+	}
+	if ((option = (COptionUI *) m_paintManagerUi.FindControl(_T("minimized")))) {
+		configurator->SetValue(_T("minimized"), option->IsSelected() ? _T("true") : _T("false"));
 	}
 	if ((option = (COptionUI *) m_paintManagerUi.FindControl(_T("autodownload")))) {
 		configurator->SetValue(_T("autodownload"), option->IsSelected() ? _T("true") : _T("false"));
