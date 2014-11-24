@@ -22,13 +22,13 @@ int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLi
 	}
 	CPaintManagerUI::SetInstance(hInstance);
 	CPaintManagerUI::SetResourceZip(_T("Wallpaper++.zip"));
-	ZYConfigurator::GetInstance();
-	ZYWallpaperHelper::GetInstance();
+	ZYConfigurator *configurator = ZYConfigurator::GetInstance();
 	ZYMainWindow mainWindow;
 	mainWindow.Create(NULL, _T("ZYMainWindow"), UI_WNDSTYLE_DIALOG, 0, 0, 0, 550, 400);
 	mainWindow.CenterWindow();
 	::SetWindowLong(mainWindow, GWL_STYLE, (::GetWindowLong(mainWindow, GWL_STYLE) & ~WS_CAPTION) | WS_CLIPSIBLINGS | WS_CLIPCHILDREN);
-	mainWindow.ShowWindow();
+	mainWindow.ShowWindow(_tcscmp(configurator->GetValue(_T("minimized")).GetData(), _T("true")) ? false : true);
+	ZYWallpaperHelper::GetInstance();
 	CPaintManagerUI::MessageLoop();
 	return 0;
 }

@@ -23,8 +23,9 @@ static LPCTSTR s_table[] = {
 };
 
 static LPCTSTR s_configs[][2] = {
-	{_T("autostart"), _T("")},
-	{_T("autodownload"), _T("")},
+	{_T("autostart"), _T("false")},
+	{_T("minimized"), _T("false")},
+	{_T("autodownload"), _T("false")},
 	{_T("url"), _T("http://cn.bing.com/")},
 	{_T("fileext"), _T(".bmp,.jpg,.png")},
 	{_T("cx"), _T("800")},
